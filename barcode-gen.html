@@ -1,0 +1,50 @@
+<script type="text/javascript">
+   RED.nodes.registerType("barcode-gen", {
+      category: 'function',
+      color: '#d6bc27',
+      defaults: {
+         name: { value: "" },
+         codeType: { value: "" },
+         includeText: { value: "" }
+      },
+      inputs: 1,
+      outputs: 1,
+      icon: "barcode.png",
+      label: function () {
+         return this.name || "barcode-gen";
+      }
+   });
+   var test_test = document.getElementById("node-code-type");
+</script>
+
+<script type="text/x-red" data-template-name="barcode-gen">
+
+   <div class="form-row">
+       <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+       <input type="text" id="node-input-name" placeholder="Name">
+   </div>
+   <div class="form-row">
+      <label for="node-input-codeType">Choose Code Type:</label>
+
+      <select name="node-input-codeType" id="node-input-codeType">
+        <option value="code128">Code128</option>
+        <option value="bc412">BC412</option>
+        <option value="code16k">Code 16K</option>
+        <option value="code11">Code 11</option>
+
+        <option value="code39">Code 39</option>
+        <option value="code49">Code 49</option>
+        <option value="code93">Code 93</option>
+        <option value="code93ext">Code 93 Extended</option>
+        <option value="codeone">Code One</option>
+      </select>
+  </div>
+  <div class="form-row">
+   <label for="node-input-includeText"><i class="icon-tag"></i> Include Text</label>
+   <input type="checkbox" id="node-input-includeText" ">
+</div>
+</script>
+
+<script type="text/x-red" data-help-name="barcode-gen">
+   <p>converts the message payloads into  barcode</p>
+</script>
